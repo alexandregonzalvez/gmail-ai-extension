@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "Gmail AI Assistant",
+    "version": "1.0",
+    "description": "AI-powered email analysis and processing",
+    "permissions": [
+        "identity",
+        "identity.email",
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://mail.google.com/*",
+        "https://api.openai.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://mail.google.com/*"],
+            "js": [
+                "src/content/debug.js",
+                "src/content/main.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["src/content/debug-inject.js"],
+            "matches": ["https://mail.google.com/*"]
+        }
+    ],
+    "background": {
+        "service_worker": "src/background/background.js",
+        "type": "module"
+    },
+    "action": {
+        "default_popup": "src/popup/popup.html",
+        "default_icon": {
+            "16": "assets/icon16.png",
+            "48": "assets/icon48.png",
+            "128": "assets/icon128.png"
+        }
+    }
+}

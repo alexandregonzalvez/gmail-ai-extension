@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail AI Assistant Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gmail AI Assistant</h1>
+    
+    <div class="section">
+      <h2>API Configuration</h2>
+      <div class="input-group">
+        <label for="api-key">OpenAI API Key:</label>
+        <input type="password" id="api-key" placeholder="Enter your API key">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Settings</h2>
+      <div class="checkbox-group">
+        <input type="checkbox" id="auto-process" checked>
+        <label for="auto-process">Automatically process new emails</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="skip-spam">
+        <label for="skip-spam">Skip potential spam</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Statistics</h2>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-label">Processed:</span>
+          <span class="stat-value" id="processed-count">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Skipped:</span>
+          <span class="stat-value" id="skipped-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="save" class="primary">Save Settings</button>
+      <button id="reset" class="secondary">Reset Stats</button>
+    </div>
+  </div>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
